@@ -1,2 +1,2 @@
 # OLIA
-A pocket-sized digital lock-in amplifier
+A pocket-sized digital lock-in amplifier - details coming soon!
