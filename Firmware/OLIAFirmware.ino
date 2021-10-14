@@ -6,12 +6,11 @@
 #define pi 3.1415926535897932384626433832795 
 #define inMultiplier 64 //change when moving to board with lower counter
 
+//NOTE: Select clock speed of 816 MHz for correct operation
 
 /////////////////////////////////////SETTINGS///////////////////////////////////////
                                     
-#define nHarmonicsSin 3 //number of sin harmonics to calculate (at least 1)       
-
-#define nHarmonicsCos 3 //number of cos harmonics to calculate (at least 1)
+#define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3)
 
 double Fsig = 400; //default modulation frequency (Hz) for internal reference
 
@@ -37,6 +36,9 @@ int isAttached = 0;
 int underSampling = 1;
 int overSampling = 1;
 int timeToSample = 0;
+
+int firstHigherHarmonic = 2;
+int lastHigherHarmonic = firstHigherHarmonic + nHarmonics - 1;
 
 
 int refOutPin = 23; //output reference signal pin
@@ -73,16 +75,16 @@ double phasSig; //reference signal values in phase
 double quadSig; //ditto, quadrature
 volatile double delta; //filtering things
 volatile double incr;
-volatile double xiFilt1[nHarmonicsSin];
-volatile double xqFilt1[nHarmonicsCos];
-volatile double xiFilt2[nHarmonicsSin];
-volatile double xqFilt2[nHarmonicsCos];
-volatile double xiVar2[nHarmonicsSin];
-volatile double xiMean2[nHarmonicsSin];
-volatile double xqVar2[nHarmonicsCos];
-volatile double xqMean2[nHarmonicsCos];
-double grabQuad[nHarmonicsCos];
-double grabPhas[nHarmonicsSin];
+volatile double xiFilt1[100];
+volatile double xqFilt1[100];
+volatile double xiFilt2[100];
+volatile double xqFilt2[100];
+volatile double xiVar2[100];
+volatile double xiMean2[100];
+volatile double xqVar2[100];
+volatile double xqMean2[100];
+double grabQuad[100];
+double grabPhas[100];
 double grabVar;
 double lag;
 double rmsMeasured;
@@ -219,8 +221,11 @@ void loop() {
         alpha_min = 1.0 - alpha;
       }
       else if (Serial.peek() == 's'){ //set new output scale factor
-        outputScale = Serial.parseFloat(); //ignores s character
-         
+        outputScale = Serial.parseFloat(); //ignores s character         
+      }
+      else if (Serial.peek() == 'h'){ //set first higher harmonic
+        firstHigherHarmonic = Serial.parseInt(); //ignores h character  
+        lastHigherHarmonic = firstHigherHarmonic + nHarmonics - 1;     
       }
       //change frequency (internal reference only)
       else
@@ -237,12 +242,16 @@ void loop() {
    }
   //turn off interrupts to grab values 
   noInterrupts();
-  for (i = 0; i < nHarmonicsSin; ++i){
+  //grab fundamentals
+  grabPhas[0] = xiFilt2[0];
+  grabQuad[0] = xqFilt2[0];
+
+  //grab harmonics
+  for (i = firstHigherHarmonic - 1; i < lastHigherHarmonic; ++i){
     grabPhas[i] = xiFilt2[i];
-  }
-  for (i = 0; i < nHarmonicsCos; ++i){
     grabQuad[i] = xqFilt2[i];
   }
+  
   grabVar = xqVar2[0];
   interrupts(); //back on again
 
@@ -295,11 +304,11 @@ void loop() {
   Serial.print(" ");
 
   //output harmonics
-    for (i = 1; i < nHarmonicsSin; ++i){
+    for (i = firstHigherHarmonic - 1; i < lastHigherHarmonic; ++i){
       Serial.print(grabPhas[i], 5);  //in phase 
       Serial.print(" ");
     }
-    for (i = 1; i < nHarmonicsCos; ++i){
+    for (i = firstHigherHarmonic - 1; i < lastHigherHarmonic; ++i){
       Serial.print(grabQuad[i], 5);  //quad
       Serial.print(" ");
     }
@@ -309,7 +318,7 @@ void loop() {
   Serial.println(""); //new line at end of output string
 
   outVal = outputScale*rmsMeasured;
-  analogWrite(pwmPin, outVal); //output recovered amplitude via pwm
+  analogWrite(pwmPin, outVal); //output recovered amplitude via filtered pwm
 
   wait = true;
   
@@ -333,7 +342,7 @@ void calculate(){ //function for actually doing the lock-in
     if (useSyncFilter == false){
   
       //in-phase harmonics
-      for (j = 0; j < nHarmonicsSin; ++j){
+      for (j = 0; j < lastHigherHarmonic; ++j){
         //calculate reference value and multiply (-1* because preamp is inverting)
         phasSig = -1*sin(((2.0 * (j + 1) * pi * sampleIndex) / samplesPerPeriod) - ((j + 1) * phaseDiff));
         xi0 = (xSig*phasSig); //-1 because preamp is inverting
@@ -346,10 +355,14 @@ void calculate(){ //function for actually doing the lock-in
         //second smoothing
         delta = xiFilt1[j] - xiFilt2[j]; 
         incr = alpha*delta;
-        xiFilt2[j] = xiFilt2[j] + incr;       
+        xiFilt2[j] = xiFilt2[j] + incr;
+
+        if (j == 0){ //skip to first higher harmonic
+          j = firstHigherHarmonic - 2;          
+        }
       }
       //same for quadrature harmonics
-      for (j = 0; j < nHarmonicsCos; ++j){
+      for (j = 0; j < lastHigherHarmonic; ++j){
         
         //calculate reference value and multiply
         quadSig = -1*cos(((2.0 * (j + 1) * pi * sampleIndex) / samplesPerPeriod) - ((j + 1) * phaseDiff)); 
@@ -364,6 +377,10 @@ void calculate(){ //function for actually doing the lock-in
         delta = xqFilt1[j] - xqFilt2[j];
         incr = alpha*delta;
         xqFilt2[j] = xqFilt2[j] + incr; 
+        
+        if (j == 0){ //skip to first higher harmonic
+          j = firstHigherHarmonic - 2;          
+        }
       }
       
       //noise estimate with quadrature harmonic
@@ -378,7 +395,7 @@ void calculate(){ //function for actually doing the lock-in
     
     //if using optional synchronous filter instead (only for very low frequencies)
     if (useSyncFilter == true){
-      for (j = 0; j < nHarmonicsSin; ++j){
+      for (j = 0; j < lastHigherHarmonic; ++j){
         phasSig = -1*sin(((2.0 * (j + 1) * pi * sampleIndex) / samplesPerPeriod) - ((j + 1) * phaseDiff));
         xi0 = (xSig*phasSig); //multiplication by reference signal
         xio0 = (xBuffer[Io0]*phasSig); //ditto for oldest buffered value
@@ -388,10 +405,13 @@ void calculate(){ //function for actually doing the lock-in
         delta = xiFilt1[j] - xiFilt2[j];
         incr = alpha*delta;
         xiFilt2[j] = xiFilt2[j] + incr;
-        
+
+        if (j == 0){ //skip to first higher harmonic
+          j = firstHigherHarmonic - 2;          
+        }
         
       }
-      for (j = 0; j < nHarmonicsCos; ++j){
+      for (j = 0; j < lastHigherHarmonic; ++j){
         quadSig = -1*cos(((2.0 * (j + 1) * pi * sampleIndex) / samplesPerPeriod) - ((j + 1) * phaseDiff)); 
         xq0 = (xSig*quadSig); 
         xqo0 = (xBuffer[Io0]*quadSig);
@@ -405,7 +425,11 @@ void calculate(){ //function for actually doing the lock-in
         delta = xqFilt2[j] - xqMean2[j];
         incr = alpha*delta;
         xqMean2[j] = xqMean2[j] + incr;
-        xqVar2[j] = (1 - alpha) * (xqVar2[j] + delta*incr);   
+        xqVar2[j] = (1 - alpha) * (xqVar2[j] + delta*incr);  
+
+        if (j == 0){ //skip to first higher harmonic
+          j = firstHigherHarmonic - 2;          
+        }
       }
   
       //advance circular buffers
@@ -444,11 +468,11 @@ void softerReboot(){ //reinitialise arrays and buffer indices
   Io0 = 1;
   In0 = 0;
   sampleIndex = 0;
-  for (j = 0; j < nHarmonicsCos; ++j){
+  for (j = 0; j < 100; ++j){
     xqFilt1[j] = 0;
     xqFilt2[j] = 0; 
   }
-  for (j = 0; j < nHarmonicsSin; ++j){
+  for (j = 0; j < 100; ++j){
     xiFilt1[j] = 0;
     xiFilt2[j] = 0; 
   } 
