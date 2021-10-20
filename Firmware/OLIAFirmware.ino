@@ -124,7 +124,7 @@ void setup() {
   adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::HIGH_SPEED); 
   adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::HIGH_SPEED);
   adc->adc0->setResolution(12);
-  adc->adc0->setAveraging (1);
+  adc->adc0->setAveraging (4);
   adc->adc0->startContinuous(A0);
   lockInTimer.begin(calculate, dt_micros);
   delay(1000);
