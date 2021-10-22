@@ -12,6 +12,8 @@
                                     
 #define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3)
 
+#define ADCAv 2 //ADC averages per sample. default 2. increasing can reduce noise at the cost of frequency response and vice versa
+
 double Fsig = 400; //default modulation frequency (Hz) for internal reference
 
 double Fsample = 200000; //sampling frequency (Hz)(changes if using external ref or sync filter).
@@ -124,7 +126,7 @@ void setup() {
   adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::HIGH_SPEED); 
   adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::HIGH_SPEED);
   adc->adc0->setResolution(12);
-  adc->adc0->setAveraging (4);
+  adc->adc0->setAveraging(ADCAv);
   adc->adc0->startContinuous(A0);
   lockInTimer.begin(calculate, dt_micros);
   delay(1000);
