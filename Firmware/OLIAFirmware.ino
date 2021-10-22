@@ -16,7 +16,7 @@
 
 double Fsig = 400; //default modulation frequency (Hz) for internal reference
 
-double Fsample = 200000; //sampling frequency (Hz)(changes if using external ref or sync filter).
+double Fsample = 200000; //ADC sampling frequency (Hz) (changes if using external ref or sync filter).
 
 bool useSyncFilter = false; //use synchronous filter only for very low frequencies
 
@@ -24,7 +24,7 @@ double phaseDiff = 0; //Choose phase offset (radians)
 
 unsigned int outputTime = 100; //number of milliseconds between outputs
 
-double timeConstant = 6;
+double timeConstant = 6; //time constant for exponential filters
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -284,10 +284,10 @@ void loop() {
   Serial.print(" ");
   Serial.print(samplesPerPeriod);
   Serial.print(" ");
-  Serial.print(FsampleTrue);
+  Serial.print(FsampleTrue); //current sample rate
   Serial.print(" ");
 
-  Serial.print(FsigTrue);
+  Serial.print(FsigTrue); //current signal frequency under measurement
   Serial.print(" ");
   Serial.print(timeConstant);
   Serial.print(" ");
@@ -330,9 +330,9 @@ void calculate(){ //function for actually doing the lock-in
   ++timeToSample;
   if (timeToSample == underSampling){ //if undersampling > 1 then doesn't run every trigger
        
-    xSig = (double)adc->analogReadContinuous(A0); //read adc
+    xSig = (double)adc->analogReadContinuous(A0); //sample current adc value
 
-    if (xSig < 96|| xSig > 4000){ //clipping if outside these bounds (it's a 12 bit ADC)
+    if (xSig < 96|| xSig > 4000){ //clipping if outside these bounds (it's a (nominally) 12 bit ADC)
       clip = 1;
     }
     else{
@@ -619,7 +619,7 @@ void setGain(){
   }
 }
 
-void clearBuffers(){ //clears out buffer for syncronous filter
+void clearBuffers(){ //clears out buffer for synchronous filter
   for (k = 0; k < 50000; ++k){
     xBuffer[k] = 0;
   }
