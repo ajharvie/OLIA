@@ -12,9 +12,9 @@
                                     
 #define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3)
 
-#define ADCAv 2 //ADC averages per sample. default 2. increasing can reduce noise at the cost of frequency response and vice versa
+#define ADCAv 1 //ADC averages per sample. increasing can reduce noise at the cost of frequency response 
 
-double Fsig = 400; //default modulation frequency (Hz) for internal reference
+double Fsig =  1000; //default modulation frequency (Hz) for internal reference
 
 double Fsample = 200000; //ADC sampling frequency (Hz) (changes if using external ref or sync filter).
 
@@ -24,7 +24,7 @@ double phaseDiff = 0; //Choose phase offset (radians)
 
 unsigned int outputTime = 100; //number of milliseconds between outputs
 
-double timeConstant = 6; //time constant for exponential filters
+double timeConstant = 0.6; //time constant for exponential filters
 
 ///////////////////////////////////////////////////////////////////////////////////
 
