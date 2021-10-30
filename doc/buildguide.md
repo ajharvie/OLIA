@@ -26,4 +26,4 @@ You will need:
   * 1x 2-terminal
   * 2x 4-terminal
 
-[Image of board layout](https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG)
+![Image of board layout](https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG)
