@@ -22,7 +22,7 @@ You will need:
   * 3x 100 pF
   * 1x 1.5 uF
   * 1x 820 pF
-* 3.5 mm erminal blocks
+* 3.5 mm terminal blocks
   * 1x 2-terminal
   * 2x 4-terminal
 
