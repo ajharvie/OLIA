@@ -30,11 +30,10 @@ The PCB is designed with wide traces and vias to make it easy to manufacture usi
 
 Before beginning soldering, the Teensy 4.0 should be flashed with the [correct firmware](https://github.com/ajharvie/OLIA/blob/main/Firmware/OLIAFirmware.ino). To do this, you will first need to download the [Arduino IDE](https://www.arduino.cc/en/software) and [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) (other solutions such as platformIO can also be used). For correct operation, the teensy must be run at a slight overclock - select "816 MHz - Overclock" in the CPU speed menu before flashing.
 
-![Image of board layout](https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG)
+<img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG" width=50% height=50%>
 
 The image above shows the location where each component is soldered onto the PCB. All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. The correct locations for all components are also marked on the silkscreen, as shown below:
 
-![Bare PCB](https://github.com/ajharvie/OLIA/blob/main/doc/images/barePCB.png)
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/barePCB.png" width=50% height=50%>
 
