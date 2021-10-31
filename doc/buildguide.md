@@ -1,4 +1,4 @@
-**Parts list and assembly guide**
+**Parts list**
 
 You will need:
 * PCB
@@ -25,6 +25,8 @@ You will need:
 * 3.5 mm terminal blocks
   * 1x 2-terminal
   * 2x 4-terminal
+
+**Assembly tips**
 
 The PCB is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service (such as PCBWay or JLCPCB).
 
