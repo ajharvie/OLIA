@@ -8,7 +8,7 @@ You will need:
 * 1 TC7660 charge pump IC
 * 1 74HC4060D binary counter IC
 * 1 74HC4046AD phase-locked loop IC
-* 1 200k potentiometer (Bourns 3310Y-001-204L or similar)
+* 1 200k potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
 * Through-hole resistors:
   * 4x 100k
   * 3x 10k
@@ -32,7 +32,7 @@ Before beginning soldering, the Teensy 4.0 should be flashed with the [correct f
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG" width=50% height=50%>
 
-The image above shows the location where each component is soldered onto the PCB (locations are also marked on the PCB's silkscreen) All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. The finished PCB is shown below:
+The image above shows the location where each component is soldered onto the PCB (locations are also marked on the PCB's silkscreen) All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. Once assembled, the board should be inspected for any bridges before applying power. The finished PCB is shown below:
 
  <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/completeboard.png" width=60% height=60%>
 
