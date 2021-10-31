@@ -34,6 +34,6 @@ Before beginning soldering, the Teensy 4.0 should be flashed with the [correct f
 
 The image above shows the location where each component is soldered onto the PCB. All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. The correct locations for all components are also marked on the silkscreen, as shown below:
 
-![Bare PCB](https://github.com/ajharvie/OLIA/blob/main/doc/images/barePCB.png?s=200)
+![Bare PCB](https://github.com/ajharvie/OLIA/blob/main/doc/images/barePCB.png?s=20)
 
 
