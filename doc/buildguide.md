@@ -36,4 +36,6 @@ The image above shows the location where each component is soldered onto the PCB
 
 ![Bare PCB](https://github.com/ajharvie/OLIA/blob/main/doc/images/barePCB.png)
 
+<img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/barePCB.png" width=50% height=50%>
+
 
