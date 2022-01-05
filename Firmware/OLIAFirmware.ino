@@ -4,7 +4,7 @@
 #include <ADC_Module.h>
 #include <elapsedMillis.h>
 #define pi 3.1415926535897932384626433832795 
-#define inMultiplier 64 //change when moving to board with lower counter
+#define inMultiplier 64 //ratio of PLL frequency to external reference frequency
 
 //NOTE: Select clock speed of 816 MHz for correct operation
 
