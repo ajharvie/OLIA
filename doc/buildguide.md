@@ -7,7 +7,7 @@ You will need:
 * 1 LTC6910-2 programmable gain amplifier
 * 1 TC7660 charge pump IC
 * 1 74HC4060D binary counter IC
-* 1 74HC4046AD phase-locked loop IC
+* 1 74HC4046AD phase-locked loop (PLL) IC
 * 1 200k potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
 * Through-hole resistors:
   * 4x 100k
@@ -30,7 +30,7 @@ You will need:
 
 The PCB is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service (such as PCBWay or JLCPCB).
 
-Before beginning soldering, the Teensy 4.0 should be flashed with the [correct firmware](https://github.com/ajharvie/OLIA/blob/main/Firmware/OLIAFirmware.ino). To do this, you will first need to download the [Arduino IDE](https://www.arduino.cc/en/software) and [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) (other solutions such as platformIO can also be used). For correct operation, the teensy must be run at a slight overclock - select "816 MHz - Overclock" in the CPU speed menu before flashing.
+Before beginning soldering, the Teensy 4.0 should be flashed with the [correct firmware](https://github.com/ajharvie/OLIA/blob/main/Firmware/OLIAFirmware.ino). To do this, you will first need to download the [Arduino IDE](https://www.arduino.cc/en/software) and [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) (other solutions such as platformIO can also be used). For correct operation at the sample rates we chose, the teensy must be run at a slight overclock - select "816 MHz - Overclock" in the CPU speed menu before flashing.
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG" width=50% height=50%>
 
