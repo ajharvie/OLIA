@@ -28,7 +28,7 @@ You will need:
 
 **Assembly tips**
 
-The PCB [(files here)](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip) is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service (such as PCBWay or JLCPCB).
+The PCB [(gerber files here)](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip) is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service (such as PCBWay or JLCPCB).
 
 Before beginning soldering, the Teensy 4.0 should be flashed with the [correct firmware](https://github.com/ajharvie/OLIA/blob/main/Firmware/OLIAFirmware.ino). To do this, you will first need to download the [Arduino IDE](https://www.arduino.cc/en/software) and [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) (other solutions such as platformIO can also be used). For correct operation at the sample rates we chose, the teensy must be run at a slight overclock - select "816 MHz - Overclock" in the CPU speed menu before flashing.
 
