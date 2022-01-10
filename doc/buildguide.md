@@ -34,8 +34,8 @@ Before beginning soldering, the Teensy 4.0 should be flashed with the [correct f
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG" width=50% height=50%>
 
-The image above shows the location where each component is soldered onto the PCB (locations are also marked on the PCB's silkscreen) All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. Once assembled, the board should be inspected for any bridges before applying power. The finished PCB is shown below:
+The image above shows the PCB's silkscreen, which marks where each component is to be soldered. All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun (or get help from someone more experienced) when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. Once assembled, the board should be inspected for any bridges before applying power. The finished PCB is shown below:
 
  <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/completeboard.png" width=60% height=60%>
 
-
+After finishing soldering, it's recommended to check using a multimeter for any bridged pins on the 74HC4060D, 74HC4046AD, and LTC6910-2 integrated circuits (no pin should be short-circuited to its immediate neighbours), and also check that none of the capacitors are bridged. Once you're happy, you can move onto [using OLIA.](https://github.com/ajharvie/OLIA/blob/main/doc/usageGuide.md)
