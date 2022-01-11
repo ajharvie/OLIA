@@ -2,7 +2,7 @@
 
 ## Connections and power
 
-The input is connected across the input terminal and any ground (marked "In" and "GND"). OLIA accepts input in the range -1.6 to +1.6 V relative to the common ground. If an external reference signal is being used, it should be connected to the terminal marked "Ref" on the input block. OLIA accepts a 3.3 V TTL square wave as an external reference.
+The signal input is connected across the input terminal and any ground (marked "In" and "GND"). OLIA accepts input in the range -1.6 to +1.6 V relative to the common ground. If an external reference signal is being used, it should be connected to the terminal marked "Ref" on the input block. OLIA accepts a 3.3 V TTL square wave as an external reference.
 
 The terminal marked "Out" provides an analogue output (discussed below), and "ADC" is connected to the input signal as it is fed into the teensy's ADC (post analogue signal conditioning). A 3.3 V TTL square wave signal is output at the "Ref" terminal (on the output block) that is in phase and of equal frequency to the internal reference. Also provided is a 5V terminal, which passes through power from  the USB connection to allow powering of external hardware (such as the included optical DC servo board), and an analogue output ("Out"). The voltage at the analogue output is proportional to the current value of R (the lock-in magnitude) multiplied by a scaling factor (default 10), and is obtained from a low-pass filtered PWM signal. 
 
