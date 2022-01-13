@@ -5,12 +5,11 @@
 #include <elapsedMillis.h>
 #define pi 3.1415926535897932384626433832795 
 #define inMultiplier 64 //ratio of PLL frequency to external reference frequency
+#define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3)
 
 //NOTE: Select clock speed of 816 MHz for correct operation
 
-/////////////////////////////////////SETTINGS///////////////////////////////////////
-                                    
-#define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3)
+/////////////////////////////////////DEFAULTS///////////////////////////////////////                                   
 
 #define ADCAv 1 //ADC averages per sample. increasing can reduce noise at the cost of frequency response 
 
@@ -25,6 +24,10 @@ double phaseDiff = 0; //Choose phase offset (radians)
 unsigned int outputTime = 100; //number of milliseconds between outputs
 
 double timeConstant = 0.6; //time constant for exponential filters
+
+int preAmpGain = 1; //default input gain. 0, 1, 2, 4, 8, 16, 32 and 64 allowed
+
+double outputScale = 10; //scale factor for "analogue" output
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -42,7 +45,6 @@ int timeToSample = 0;
 int firstHigherHarmonic = 2;
 int lastHigherHarmonic = firstHigherHarmonic + nHarmonics - 1;
 
-
 int refOutPin = 23; //output reference signal pin
 int pwmPin = 22;    //"analogue" output pin (uses filtered pwm)
 
@@ -51,9 +53,7 @@ int ampPin0 = 11;
 int ampPin1 = 10;
 int ampPin2 = 9;
 
-int preAmpGain = 1; //default input gain. 0, 1, 2, 4, 8, 16, 32 and 64 allowed
 
-double outputScale = 10; //scale factor for "analogue" output
 double outVal = 0;
 
 //variables for detecting clipping/saturation
