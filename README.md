@@ -7,10 +7,10 @@ A pocket-sized, USB-powered, open digital lock-in amplifier. Features include:
 - Internal or external referencing
 - 20 Hz - 15 kHz frequency range
 - Dynamic range of ~10<sup>5</sup>
-- -1.6 V - +1.6 V bipolar input
+- -1.6 V to +1.6 V bipolar input
 - Variable input gain (from 0 to 64)
 - Configurable analogue output
-- Exponential and synchronous filtering
+- Both exponential and synchronous filtering, with adjustable filter time constant
 - Parallel calculation of higher harmonics
 - Power passthrough
 - Simple, powerful frontend
