@@ -9,7 +9,7 @@ A pocket-sized, USB-powered, open digital lock-in amplifier. Features include:
 - Dynamic range of ~10<sup>5</sup>
 - -1.6 V - +1.6 V bipolar input
 - Variable input gain (from 0 to 64)
-- Analogue output
+- Configurable analogue output
 - Exponential and synchronous filtering
 - Parallel calculation of higher harmonics
 - Power passthrough
