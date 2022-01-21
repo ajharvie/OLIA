@@ -305,6 +305,8 @@ void loop() {
   Serial.print(grabQuad[0], 5);  //fundamental quadrature
   Serial.print(" ");
 
+
+
   //output harmonics
     for (i = firstHigherHarmonic - 1; i < lastHigherHarmonic; ++i){
       Serial.print(grabPhas[i], 5);  //in phase 
@@ -314,6 +316,9 @@ void loop() {
       Serial.print(grabQuad[i], 5);  //quad
       Serial.print(" ");
     }
+
+  Serial.print(firstHigherHarmonic);  //first higher harmonic
+  Serial.print(" ");
 
 
   
