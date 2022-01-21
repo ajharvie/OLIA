@@ -1,6 +1,8 @@
 # Serial communication reference 
 ## List of serial commands
 
+The below table lists the serial commands OLIA accepts. 
+
 | Command | Description | Note |
 | --- | --- | --- |
 | `t` | Toggle synchronous filter | Default off |
@@ -16,6 +18,8 @@
 Note: In above table, [x] represents floating point values and [n] represents integers. The square brackets should not be included in commands.
 
 ## Parsing OLIA's output
+
+OLIA makes an output every 100 ms, consisting of a string of values separated by spaces, terminating in a line break. These values are summarised in the table below, where the Index represents each value's position in the output string.
 
 | Index | Description | Type | Note |
 | --- | --- | --- | --- |
