@@ -19,9 +19,9 @@ You will need:
   * 1x 4.7 kΩ
   * 1x 220 kΩ
 * 0805 capacitors:
-  * 3x 10 uF
+  * 3x 10 μF
   * 3x 100 pF
-  * 1x 1.5 uF
+  * 1x 1.5 μF
   * 1x 820 pF
 * 3.5 mm terminal blocks
   * 1x 2-terminal
