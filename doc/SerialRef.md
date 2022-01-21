@@ -19,7 +19,7 @@ Note: In above table, [x] represents floating point values and [n] represents in
 
 ## Parsing OLIA's output
 
-OLIA makes an output every 100 ms, consisting of a string of values separated by spaces, terminating in a carriage return and new line (".....\r\n"). These values are summarised in the table below, where the Index represents each value's position in the output string.
+OLIA makes an output every 100 ms, consisting of a string of values separated by spaces, terminating in a carriage return and new line (".....\r\n"). These values are summarised in the table below, where the index represents each value's position in the output string.
 
 | Index | Description | Type | Note |
 | --- | --- | --- | --- |
