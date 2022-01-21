@@ -14,4 +14,5 @@ A pocket-sized, USB-powered, open digital lock-in amplifier. Features include:
 - Parallel calculation of higher harmonics
 - Power passthrough
 - Simple, powerful frontend
+
 More details coming soon, but in the short term we include a [build guide](https://github.com/ajharvie/OLIA/blob/main/doc/buildguide.md) and some simple [usage instructions.](https://github.com/ajharvie/OLIA/blob/main/doc/usageGuide.md)
