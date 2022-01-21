@@ -1,4 +1,5 @@
 # OLIA
+## The Open Lock-In Amplifier
 
 ![Image of completed board](https://github.com/ajharvie/OLIA/blob/main/doc/images/completeboard.png)
 
