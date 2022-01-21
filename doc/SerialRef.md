@@ -37,7 +37,7 @@ OLIA makes an output every 100 ms, consisting of a string of values separated by
 | 11 | ϕ | Float | Recovered phase in radians |
 | 12 | Noise estimate | Float | Noise estimate based on the rooted variance of the quadrature signal |
 | 13 | X1 | Float | Recovered lock-in amplitude (In phase) |
-| 14 | Y1 | Float | Recovered lock-in amplitude (quadtrature) |
+| 14 | Y1 | Float | Recovered lock-in amplitude (quadrature) |
 | 15 | X(n) | Float | Recovered lock-in amplitude (In phase, nth harmonic). Here, n is the harmonic number of the first higher harmonic being calculated (default 2) |
 | 16 | X(n+1) | Float | Recovered lock-in amplitude (In phase, n+1th harmonic) |
 | 17 | X(n+2) | Float | Recovered lock-in amplitude (In phase, n+2th harmonic) |
