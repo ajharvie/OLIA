@@ -9,7 +9,7 @@ You will need:
 * 1 TC7660 charge pump IC
 * 1 74HC4060D binary counter IC
 * 1 74HC4046AD phase-locked loop (PLL) IC
-* 1 200k potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
+* 1 200 kΩ potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
 * Through-hole resistors:
   * 4x 100 kΩ
   * 3x 10 kΩ
