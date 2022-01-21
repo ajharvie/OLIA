@@ -1,3 +1,6 @@
+# Serial communication reference 
+## List of serial commands
+
 | Command | Description | Note |
 | --- | --- | --- |
 | `t` | Toggle synchronous filter | Default off |
@@ -11,4 +14,31 @@
 
 
 Note: In above table, [x] represents floating point values and [n] represents integers. The square brackets should not be included in commands.
+
+## Parsing OLIA's output
+
+| Index | Description | Type | Note |
+| --- | --- | --- | --- |
+| 0 | Clipping indicator  | Boolean | "True" if clipping |
+| 1 | Analogue output scaling factor | Float | default 10 |
+| 2 | Input preamp gain | Integer | Default 1, allowed values 0, 1, 2, 4, 8, 16, 32, 64 |
+| 3 | Synchronous filter indicator | Boolean | Default 0, 1 if synchronous filter is in use |
+| 4 | Reference mode indicator | Boolean | Default 0, 1 if external reference is in use |
+| 5 | Number of samples per signal period | Integer |  |
+| 6 | True sample rate | Integer | Units are Hz |
+| 7 | Current reference signal frequency | Float | Units are Hz |
+| 8 | Current exponential time constant | Float | Units are s |
+| 9 | Degree of undersampling | Integer | Degree of undersampling (for high frequency external reference signals only) |
+| 10 | R | Float | Total recovered lock-in amplitude |
+| 11 | ϕ | Float | Recovered phase in radians |
+| 12 | Noise estimate | Float | Noise estimate based on the rooted variance of the quadrature signal |
+| 13 | X1 | Float | Recovered lock-in amplitude (In phase) |
+| 14 | Y1 | Float | Recovered lock-in amplitude (quadtrature) |
+| 15 | X(n) | Float | Recovered lock-in amplitude (In phase, nth harmonic). Here, n is the harmonic number of the first higher harmonic being calculated (default 2) |
+| 16 | X(n+1) | Float | Recovered lock-in amplitude (In phase, n+1th harmonic) |
+| 17 | X(n+2) | Float | Recovered lock-in amplitude (In phase, n+2th harmonic) |
+| 18 | Y(n) | Float | Recovered lock-in amplitude (quadrature, nth harmonic) |
+| 19 | Y(n+1) | Float | Recovered lock-in amplitude (quadrature, n+1th harmonic) |
+| 20 | Y(n+2) | Float | Recovered lock-in amplitude (quadrature, n+2th harmonic) |
+
 
