@@ -11,13 +11,13 @@ You will need:
 * 1 74HC4046AD phase-locked loop (PLL) IC
 * 1 200k potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
 * Through-hole resistors:
-  * 4x 100k
-  * 3x 10k
-  * 2x 12k
-  * 1x 2.2k
-  * 1x 3.3k
-  * 1x 4.7k
-  * 1x 220k
+  * 4x 100 kΩ
+  * 3x 10 kΩ
+  * 2x 12 kΩ
+  * 1x 2.2 kΩ
+  * 1x 3.3 kΩ
+  * 1x 4.7 kΩ
+  * 1x 220 kΩ
 * 0805 capacitors:
   * 3x 10 uF
   * 3x 100 pF
