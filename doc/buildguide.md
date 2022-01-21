@@ -1,4 +1,5 @@
-**Parts list**
+# Build guide
+## Parts list
 
 You will need:
 * [PCB](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip)
@@ -26,7 +27,7 @@ You will need:
   * 1x 2-terminal
   * 2x 4-terminal
 
-**Assembly tips**
+## Assembly tips
 
 The PCB [(gerber files here)](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip) is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service (such as PCBWay or JLCPCB).
 
