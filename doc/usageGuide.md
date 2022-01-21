@@ -11,7 +11,7 @@ Once all external connections are established, OLIA can be powered on by connect
 
 
 ## Software
-OLIA is included with a simple python 3 frontend (OLIAGUI.py). The software requires the libraries PyQt5, pyqtgraph, and numpy to run. These libraries are all included with, or can be installed using Anaconda. The script "communicator.py" and ui file "interface.ui" must be included in the same directory as OLIAGUI.py. A screenshot of the control software is included below. OLIA can also be used without the packaged frontend, or you may wish to build your own; to allow this an explanation of the serial interface is included [here](https://github.com/ajharvie/OLIA/blob/main/doc/SerialRef.md)
+OLIA is included with a simple python 3 frontend (OLIAGUI.py). The software requires the libraries PyQt5, pyqtgraph, and numpy to run. These libraries are all included with, or can be installed using Anaconda. The script "communicator.py" and ui file "interface.ui" must be included in the same directory as OLIAGUI.py. A screenshot of the control software is included below. OLIA can also be used without the packaged frontend, or you may wish to build your own; to allow this an explanation of the serial interface is included [here.](https://github.com/ajharvie/OLIA/blob/main/doc/SerialRef.md)
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/frontend.png" width=50% height=50%>
 
