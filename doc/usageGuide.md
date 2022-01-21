@@ -11,7 +11,7 @@ Once all external connections are established, OLIA can be powered on by connect
 
 
 ## Software
-OLIA is included with a simple python 3 frontend (OLIAGUI.py). The software requires the libraries PyQt5, pyqtgraph, and numpy to run. These libraries are all included with, or can be installed using Anaconda. The script "communicator.py" and ui file "interface.ui" must be included in the same directory as OLIAGUI.py. A screenshot of the control software is included below. OLIA can also be used without the packaged frontend, or you may wish to build your own; to allow this an explanation of the serial interface is included [here.](https://github.com/ajharvie/OLIA/blob/main/doc/SerialRef.md)
+OLIA is included with a simple python 3 frontend (OLIAGUI.py). The software requires the libraries PyQt5, pyqtgraph, and numpy to run. These libraries are all included with, or can be installed using Anaconda. The script "communicator.py" and ui file "interface.ui" must be included in the same directory as OLIAGUI.py. A screenshot of the control software is included below. **OLIA can also be used without the packaged frontend, or you may wish to build your own; to allow this an explanation of the serial interface is included [here.](https://github.com/ajharvie/OLIA/blob/main/doc/SerialRef.md)**
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/frontend.png" width=50% height=50%>
 
@@ -26,5 +26,3 @@ Selecting the "Save to file" checkbox before starting a measurement will result 
 The external reference mode can be activated using a checkbox (note that the external reference signal must be connected before powering on the device). OLIA accepts external square-wave, 3.3 V TTL reference signals of frequencies between approximately 0.1 - 100 kHz. The external reference signal is used to generate a frequency-multiplied "trigger" signal using a phase-locked loop (PLL) in combination with a counter. Correct operation of the PLL requires tuning of the centre frequency of the PLL's internal oscillator to a value of a similar order of magnitude as the "trigger" signal (64 times the input reference frequency). This is achieved by manually adjusting the potentiometer. To find the right setting, connect the external reference signal to the "Ref" and "In" terminals, and adjust the potentiometer until a stable, positive value of R is observed. For frequencies above 5 kHz, the potentiometer will usually be turned fully to the left, and only turned to the right for lower frequencies. 
 
 The frequency of the external reference signal can be measured and displayed by clicking the button marked "Query freq.".
-
-
