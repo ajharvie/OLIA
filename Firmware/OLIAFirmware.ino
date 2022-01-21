@@ -203,7 +203,7 @@ void loop() {
           delay(100);              
         }
       }
-      else if (Serial.peek() == 'r'){ //toggle synchronous filter
+      else if (Serial.peek() == 'r'){ //toggle reference mode
         Serial.read();
         switchReferenceMode();
         softerReboot();
