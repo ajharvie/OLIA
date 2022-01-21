@@ -90,7 +90,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if self.recordBox.isChecked():
                     f = open(filename, 'w', newline='')
                     writer = csv.writer(f)
-                    writer.writerow(["R (a.u.)","Phase (deg)","Noise (a.u.)","X (a.u.)","Y (a.u.)","Sin Harmonic 1","Sin Harmonic 2","Sin Harmonic 3","Cos Harmonic 1","Cos Harmonic 2","Cos Harmonic 3"])
+                    writer.writerow(["R (a.u.)","Phase (deg)","Noise (a.u.)","X (a.u.)","Y (a.u.)","Sin Harmonic n","Sin Harmonic n+1","Sin Harmonic n+2","Cos Harmonic n","Cos Harmonic n+1","Cos Harmonic n+2", "Higher harmonic number n"])
                     
                 self.recordBox.setDisabled(True)
                 
@@ -161,7 +161,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         
                     
                     if self.recordBox.isChecked():
-                        writer.writerow([str(measurements[10]),str(measurements[11]),str(measurements[12]),str(measurements[13]),str(measurements[14]),str(measurements[15]),str(measurements[16]),str(measurements[17]),str(measurements[18]),str(measurements[19]),str(measurements[20])])
+                        writer.writerow([str(measurements[10]),str(measurements[11]),str(measurements[12]),str(measurements[13]),str(measurements[14]),str(measurements[15]),str(measurements[16]),str(measurements[17]),str(measurements[18]),str(measurements[19]),str(measurements[20]),str(measurements[21])])
                      
                     if self.plotBox.isChecked():
                         plotLength = self.toPlotR.size
@@ -316,5 +316,3 @@ try:
     app.exec_()
 except AttributeError:
     pass
-
-
