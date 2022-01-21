@@ -29,13 +29,13 @@ You will need:
 
 ## Assembly tips
 
-The PCB [(gerber files here)](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip) is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service (such as PCBWay or JLCPCB).
+The PCB [(gerber files here)](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip) is designed with wide traces and vias to make it easy to manufacture using a desktop milling machine, but a cleaner option is to use an on-demand PCB manufacturing service such as PCBWay (who we used) or JLCPCB.
 
 Before beginning soldering, the Teensy 4.0 should be flashed with the [correct firmware](https://github.com/ajharvie/OLIA/blob/main/Firmware/OLIAFirmware.ino). To do this, you will first need to download the [Arduino IDE](https://www.arduino.cc/en/software) and [Teensyduino](https://www.pjrc.com/teensy/teensyduino.html) (other solutions such as platformIO can also be used). For correct operation at the sample rates we chose, the teensy must be run at a slight overclock - select "816 MHz - Overclock" in the CPU speed menu before flashing.
 
 <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/boardImage.PNG" width=50% height=50%>
 
-The image above shows the PCB's silkscreen, which marks where each component is to be soldered. All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun (or get help from someone more experienced) when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. Once assembled, the board should be inspected for any bridges before applying power. The finished PCB is shown below:
+The image above shows the PCB's silkscreen, which marks where each component is to be soldered. All components are soldered onto the top side of the PCB. This can be achieved using only an iron, if you're careful, but those less experienced at soldering may wish to use a hot air gun (or get help from someone more experienced) when soldering on the LTC6910-2 as it is a very small package. The Teensy 4.0 is soldered to the board using pin headers. It is usually easier to solder on all surface-mount components on first, before moving on to through-hole parts; this allows you to set the board on a flat surface without it moving around on protruding leads. If you're nervous about soldering surface mount components, Sparkfun has a nice tutorial [here](https://www.sparkfun.com/tutorials/36) on how to do it. Once assembled, the board should be inspected for any bridges before applying power. The finished PCB is shown below:
 
  <img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/completeboard.png" width=60% height=60%>
 
