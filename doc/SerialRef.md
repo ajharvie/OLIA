@@ -32,7 +32,7 @@ OLIA makes an output every 100 ms, consisting of a string of values separated by
 | 6 | True sample rate | Integer | Units are Hz |
 | 7 | Current reference signal frequency | Float | Units are Hz |
 | 8 | Current exponential time constant | Float | Units are s |
-| 9 | Degree of undersampling | Integer | Degree of undersampling (for high frequency external reference signals only) |
+| 9 | Undersampling | Integer | Degree of undersampling (for high frequency external reference signals only) e.g. if 1, there is no undersampling (64 samples per period) but if 2, this reduces to 32 samples per period |
 | 10 | R | Float | Total recovered lock-in amplitude |
 | 11 | ϕ | Float | Recovered phase in radians |
 | 12 | Noise estimate | Float | Noise estimate based on the rooted variance of the quadrature signal |
