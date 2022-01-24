@@ -15,6 +15,6 @@ A pocket-sized, USB-powered, open digital lock-in amplifier, based around the Te
 - 5 V power passthrough
 - Simple, powerful frontend
 - Ultra low unit cost (~£30)
-- Simple construction
+- Simple construction (all hand-solderable)
 
 More details coming soon, but in the short term we include a [build guide](https://github.com/ajharvie/OLIA/blob/main/doc/buildguide.md) and some simple [usage instructions.](https://github.com/ajharvie/OLIA/blob/main/doc/usageGuide.md)
