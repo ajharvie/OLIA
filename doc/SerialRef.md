@@ -23,15 +23,15 @@ OLIA makes an output every 100 ms, consisting of a string of values separated by
 
 | Index | Description | Type | Note |
 | --- | --- | --- | --- |
-| 0 | Clipping indicator  | Boolean | "True" if clipping |
+| 0 | Clipping indicator  | Boolean | 1 (true) if clipping |
 | 1 | Analogue output scaling factor | Float | default 10 |
 | 2 | Input preamp gain | Integer | Default 1, allowed values 0, 1, 2, 4, 8, 16, 32, 64 |
-| 3 | Synchronous filter indicator | Boolean | Default 0, 1 if synchronous filter is in use |
-| 4 | Reference mode indicator | Boolean | Default 0, 1 if external reference is in use |
-| 5 | Number of samples per signal period | Integer |  |
-| 6 | True sample rate | Integer | Units are Hz |
+| 3 | Synchronous filter indicator | Boolean | Default 0 (false, exponential filter is in use), 1 if synchronous filter is in use |
+| 4 | Reference mode indicator | Boolean | Default 0 (false, internal reference is in use), 1 if external reference is in use |
+| 5 | Number of samples per reference signal period | Integer |  |
+| 6 | True sample rate | Float | Units are Hz |
 | 7 | Current reference signal frequency | Float | Units are Hz |
-| 8 | Current exponential time constant | Float | Units are s |
+| 8 | Current exponential time constant | Float | Units are seconds |
 | 9 | Undersampling | Integer | Degree of undersampling (for high frequency external reference signals only) e.g. if 1, there is no undersampling (64 samples per period) but if 2, this reduces to 32 samples per period |
 | 10 | R | Float | Total recovered lock-in amplitude |
 | 11 | ϕ | Float | Recovered phase in radians |
