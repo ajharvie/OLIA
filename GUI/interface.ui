@@ -75,7 +75,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Lock-in interface</string>
+   <string>OLIA GUI</string>
   </property>
   <widget class="QTextBrowser" name="rOutput">
    <property name="geometry">
@@ -372,7 +372,7 @@
     </font>
    </property>
    <property name="text">
-    <string>COM4</string>
+    <string>COM0</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="freqInput">
