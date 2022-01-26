@@ -24,7 +24,7 @@ OLIA makes an output every 100 ms, consisting of a string of values separated by
 | Index | Description | Type | Note |
 | --- | --- | --- | --- |
 | 0 | Clipping indicator  | Boolean | 1 (true) if clipping, 0 (false) otherwise |
-| 1 | Analogue output scaling factor | Float | default 10 |
+| 1 | Analogue output scaling factor | Float | Default 10 |
 | 2 | Input preamp gain | Integer | Default 1, allowed values 0, 1, 2, 4, 8, 16, 32, 64 |
 | 3 | Synchronous filter indicator | Boolean | Default 0 (false, exponential filter is in use), 1 if synchronous filter is in use |
 | 4 | Reference mode indicator | Boolean | Default 0 (false, internal reference is in use), 1 if external reference is in use |
