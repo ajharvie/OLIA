@@ -44,6 +44,6 @@ OLIA makes an output every 100 ms, consisting of a string of values separated by
 | 18 | Y(n) | Float | Recovered lock-in amplitude (quadrature, nth harmonic) |
 | 19 | Y(n+1) | Float | Recovered lock-in amplitude (quadrature, n+1th harmonic) |
 | 20 | Y(n+2) | Float | Recovered lock-in amplitude (quadrature, n+2th harmonic) |
-| 21 | n | Integer | Harmonic number n of first reported higher harmonic |
+| 21 | n (see above) | Integer | Harmonic number n of first reported higher harmonic |
 
 
