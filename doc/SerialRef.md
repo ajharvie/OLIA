@@ -1,7 +1,7 @@
 # Serial communication reference 
 ## List of serial commands
 
-The below table lists the serial commands OLIA accepts. 
+The below table lists the serial commands OLIA accepts. Commands can be terminated with a carriage return `'\r'` or a line feed `'\n'`.
 
 | Command | Description | Note |
 | --- | --- | --- |
