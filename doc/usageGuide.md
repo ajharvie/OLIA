@@ -1,4 +1,4 @@
-# Usage instructions
+# Usage instructions - quick start guide
 
 ## Connections and power
 
