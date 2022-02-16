@@ -318,9 +318,6 @@ void loop() {
     }
 
   Serial.print(firstHigherHarmonic);  //first higher harmonic
-  Serial.print(" ");
-
-
   
   Serial.println(""); //new line at end of output string
 
