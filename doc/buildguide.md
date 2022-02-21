@@ -4,28 +4,28 @@
 You will need:
 * [PCB](https://github.com/ajharvie/OLIA/blob/main/Boards/OLIAGerbers.zip)
 * Teensy 4.0
-* 2 MCP602 op-amp ICs
-* 1 LTC6910-2 programmable gain amplifier
-* 1 TC7660 charge pump IC
-* 1 74HC4060D binary counter IC
-* 1 74HC4046AD phase-locked loop (PLL) IC
-* 1 200 kΩ potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
+* 2× MCP602 op-amp ICs
+* 1× LTC6910-2 programmable gain amplifier
+* 1× TC7660 charge pump IC
+* 1× 74HC4060D binary counter IC
+* 1× 74HC4046AD phase-locked loop (PLL) IC
+* 1× 200 kΩ potentiometer (Bourns 3310Y-001-204L or similar) and corresponding knob
 * Through-hole resistors:
-  * 4x 100 kΩ
-  * 3x 10 kΩ
-  * 2x 12 kΩ
-  * 1x 2.2 kΩ
-  * 1x 3.3 kΩ
-  * 1x 4.7 kΩ
-  * 1x 220 kΩ
+  * 4× 100 kΩ
+  * 3× 10 kΩ
+  * 2× 12 kΩ
+  * 1× 2.2 kΩ
+  * 1× 3.3 kΩ
+  * 1× 4.7 kΩ
+  * 1× 220 kΩ
 * 0805 capacitors:
-  * 3x 10 μF
-  * 3x 100 pF
-  * 1x 1.5 μF
-  * 1x 820 pF
+  * 3× 10 μF
+  * 3× 100 pF
+  * 1× 1.5 μF
+  * 1× 820 pF
 * 3.5 mm terminal blocks:
-  * 1x 2-terminal
-  * 2x 4-terminal
+  * 1× 2-terminal
+  * 2× 4-terminal
 
 ## Assembly tips
 
