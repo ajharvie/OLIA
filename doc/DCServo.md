@@ -9,7 +9,7 @@ Lock-in is perhaps most useful as a technique for extracting weak signals of kno
 
 ## Parts list & assembly
 To build this circuit, you will require:
-* A PCB [gerbers available here](https://github.com/ajharvie/OLIA/blob/main/Boards/OpticalDCServoGerbers.zip)
+* A PCB [(gerbers available here)](https://github.com/ajharvie/OLIA/blob/main/Boards/OpticalDCServoGerbers.zip)
 * Through-hole resistors:
   * 3 x 3.3 kΩ
   * 1 x 1.8 kΩ
