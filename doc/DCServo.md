@@ -25,7 +25,7 @@ To build this circuit, you will require:
 
 A diagram of the top side of the PCB is shown below, showing the locations of each component (the OPT101 is mounted on the back side)
 
-![Board diagram](https://github.com/ajharvie/OLIA/blob/main/doc/images/dcservoBoard.PNG)
+<img src="https://github.com/ajharvie/OLIA/blob/main/doc/images/dcservoBoard.PNG" width=50% height=50%>
 
 ## Usage
 Using the board is very simple. First, connect the output of the board (labelled "Out") to OLIA's signal input, and at connect at least one ground ("G"). Then, provide 5 V power to the DC servo board, either from OLIA's 5 V pass-through or from an external source. Once these connections are made, the board is fully operational and should effectively compensate for and reject slowly-varying ambient light.
