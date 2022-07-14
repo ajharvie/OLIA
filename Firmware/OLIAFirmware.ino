@@ -62,6 +62,14 @@ float clipAlpha = 0.0005;
 volatile float clipValue = 0;
 bool clipping;
 
+float lock = 0;
+float lockAlpha = 0.0005;
+volatile float offLockValue = 0;
+bool offLock;
+
+int errorValue; //0 if fine, 1 if clipping, 2 if poor reference lock, 3 if both
+
+
 int i;
 volatile int j;
 int k;
@@ -96,6 +104,12 @@ double xi0;
 double xq0;
 double xio0;
 double xqo0;
+
+volatile unsigned long lastLoopStart;
+volatile unsigned long thisLoopStart;
+volatile unsigned long thisloopTime;
+volatile unsigned long lastLoopTime;
+volatile float loopRatio;
 
 double alpha = 1/(FsampleTrue*timeConstant); // filter parameter
 double alpha_min = 1.0 - alpha;
@@ -269,9 +283,29 @@ void loop() {
   else{
     clipping = false;
   }
-  
+  //likewise for failure to lock to external ref
+  if (offLockValue > 0.2){
+    offLock = true;
+  }
+  else{
+    offLock = false;
+  }
 
-  Serial.print(clipping); //is clipping?
+  if (clipping == true && offLock == true){
+    errorValue = 3;
+  }
+  else if (clipping == true){
+    errorValue = 1;
+  }
+  else if (offLock == true){
+    errorValue = 2;
+  }
+  else{
+    errorValue = 0;
+  }
+  
+ 
+  Serial.print(errorValue); 
   Serial.print(" ");
   Serial.print(outputScale); //for analogue out
   Serial.print(" ");
@@ -318,6 +352,9 @@ void loop() {
     }
 
   Serial.print(firstHigherHarmonic);  //first higher harmonic
+  //Serial.print(" ");
+
+
   
   Serial.println(""); //new line at end of output string
 
@@ -340,7 +377,25 @@ void calculate(){ //function for actually doing the lock-in
     else{
       clip = 0;
     }
+        
     clipValue = clipValue*(1 - clipAlpha) + clip*clipAlpha; //filter clippingness
+
+    thisLoopStart = micros();
+    thisloopTime = thisLoopStart - lastLoopStart;
+    
+    loopRatio = (float)thisloopTime/(float)lastLoopTime;
+
+    lastLoopTime = thisloopTime;
+    lastLoopStart = thisLoopStart;
+
+    if (loopRatio < 0.95 || loopRatio > 1.05){
+      lock = 1;
+    }
+    else {
+      lock = 0;
+    }
+    
+    offLockValue = offLockValue*(1 - lockAlpha) + lock*lockAlpha; //filter poor lockingness
     
     // if using standard exponential filter (not synchronous)
     if (useSyncFilter == false){
