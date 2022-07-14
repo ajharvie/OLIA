@@ -90,7 +90,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if self.recordBox.isChecked():
                     f = open(filename, 'w', newline='')
                     writer = csv.writer(f)
-                    writer.writerow(["R (a.u.)","Phase (deg)","Noise (a.u.)","X (a.u.)","Y (a.u.)","Sin Harmonic n","Sin Harmonic n+1","Sin Harmonic n+2","Cos Harmonic n","Cos Harmonic n+1","Cos Harmonic n+2", "Higher harmonic number n"])
+                    writer.writerow(["R (a.u.)","Phase (deg)","Uncorrected phase (deg)","Noise (a.u.)","X (a.u.)","Y (a.u.)","Sin Harmonic n","Sin Harmonic n+1","Sin Harmonic n+2","Cos Harmonic n","Cos Harmonic n+1","Cos Harmonic n+2", "Higher harmonic number n"])
                     
                 self.recordBox.setDisabled(True)
                 
@@ -115,6 +115,13 @@ class MainWindow(QtWidgets.QMainWindow):
                     if clipping == 1:
                         self.dialogueBox.setText("Clipping!")
                         self.dialogueBox.setStyleSheet("color: red;")
+                    elif clipping == 2:
+                        self.dialogueBox.setText("Lock failure!")
+                        self.dialogueBox.setStyleSheet("color: red;")
+                    elif clipping == 3:
+                        self.dialogueBox.setText("Lock failure, and clipping!")
+                        self.dialogueBox.setStyleSheet("color: red;")
+                        
                     else:
                         self.dialogueBox.setText("Running")
                         self.dialogueBox.setStyleSheet("color: black;")
@@ -161,8 +168,10 @@ class MainWindow(QtWidgets.QMainWindow):
                         
                     
                     if self.recordBox.isChecked():
-                        writer.writerow([str(measurements[10]),str(measurements[11]),str(measurements[12]),str(measurements[13]),str(measurements[14]),str(measurements[15]),str(measurements[16]),str(measurements[17]),str(measurements[18]),str(measurements[19]),str(measurements[20]),str(measurements[21])])
-                     
+                        #writer.writerow([str(measurements[10]),str(measurements[11]),str(measurements[12]),str(measurements[13]),str(measurements[14]),str(measurements[15]),str(measurements[16]),str(measurements[17]),str(measurements[18]),str(measurements[19]),str(measurements[20]),str(measurements[21])])
+                        writer.writerow([str(rOut),str(phiOut),str(measurements[11]),str(measurements[12]),
+                                         str(xOut),str(yOut),str(measurements[15]),str(measurements[16]),
+                                         str(measurements[17]),str(measurements[18]),str(measurements[19]),str(measurements[20]),str(measurements[21])])
                     if self.plotBox.isChecked():
                         plotLength = self.toPlotR.size
                         self.xvals = np.linspace(-0.1*(plotLength-1), 0, plotLength)
