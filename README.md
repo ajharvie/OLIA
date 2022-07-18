@@ -5,7 +5,7 @@
 
 A pocket-sized, USB-powered, open digital lock-in amplifier, based around the Teensy 4.0. Features include:
 - Internal or external referencing
-- 10 Hz - 25 kHz frequency range
+- 10 Hz - 50 kHz frequency range
 - Dynamic range of ~10<sup>6</sup> (using input preamp)
 - -1.6 V to +1.6 V bipolar input
 - Variable input gain (from 0 to 64)
