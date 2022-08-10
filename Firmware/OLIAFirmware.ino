@@ -5,7 +5,7 @@
 #include <elapsedMillis.h>
 #define pi 3.1415926535897932384626433832795 
 #define inMultiplier 64 //ratio of PLL frequency to external reference frequency
-#define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3)
+#define nHarmonics 3 //number of higher harmonics to calculate (at least 1, max 3). Can be increased if digitisation rate is decreased accordingly
 
 //NOTE: Select clock speed of 816 MHz for correct operation
 
@@ -15,7 +15,7 @@
 
 double Fsig =  1000; //default modulation frequency (Hz) for internal reference
 
-double Fsample = 200000; //ADC sampling frequency (Hz) (changes if using external ref or sync filter).
+double Fsample = 200000; //ADC digitisation rate (Hz) (changes if using external ref or sync filter).
 
 bool useSyncFilter = false; //use synchronous filter only for very low frequencies
 
