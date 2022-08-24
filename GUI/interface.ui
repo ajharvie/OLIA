@@ -167,7 +167,7 @@
     </font>
    </property>
    <property name="text">
-    <string>R (a.u.)</string>
+    <string>R (mV)</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -203,7 +203,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Noise (a.u.)</string>
+    <string>Noise (mV)</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -221,7 +221,7 @@
     </font>
    </property>
    <property name="text">
-    <string>X (a.u.)</string>
+    <string>X (mV)</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
@@ -239,7 +239,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Y (a.u.)</string>
+    <string>Y (mV)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="filenameInput">
