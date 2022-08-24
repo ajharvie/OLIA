@@ -29,6 +29,8 @@ int preAmpGain = 1; //default input gain. 0, 1, 2, 4, 8, 16, 32 and 64 allowed
 
 double outputScale = 10; //scale factor for "analogue" output
 
+double calibrationFactor = 3.3/2.047;
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 IntervalTimer lockInTimer;
@@ -259,13 +261,13 @@ void loop() {
   //turn off interrupts to grab values 
   noInterrupts();
   //grab fundamentals
-  grabPhas[0] = xiFilt2[0];
-  grabQuad[0] = xqFilt2[0];
+  grabPhas[0] = xiFilt2[0]*calibrationFactor;
+  grabQuad[0] = xqFilt2[0]*calibrationFactor;
 
   //grab harmonics
   for (i = firstHigherHarmonic - 1; i < lastHigherHarmonic; ++i){
-    grabPhas[i] = xiFilt2[i];
-    grabQuad[i] = xqFilt2[i];
+    grabPhas[i] = xiFilt2[i]*calibrationFactor;
+    grabQuad[i] = xqFilt2[i]*calibrationFactor;
   }
   
   grabVar = xqVar2[0];
@@ -274,7 +276,7 @@ void loop() {
   //calculate phase and R
   lag = atan(grabQuad[0]/grabPhas[0]);
   rmsMeasured = sqrt(grabQuad[0]*grabQuad[0] + grabPhas[0]*grabPhas[0]);
-  noise = sqrt(grabVar);
+  noise = sqrt(grabVar)*calibrationFactor;
 
   //heuristic value to determine whether clipping is happening
   if (clipValue > 0.05){
@@ -325,9 +327,20 @@ void loop() {
   Serial.print(" ");
   Serial.print(timeConstant);
   Serial.print(" ");
-  Serial.print(underSampling);
-  Serial.print(" ");
 
+  if (extMode == 0){
+    Serial.print(0);
+    Serial.print(" ");
+  }
+  else if (overSampling == 2){
+    Serial.print(0.5);
+    Serial.print(" ");
+  }
+  else {
+    Serial.print(underSampling);
+    Serial.print(" ");
+  }
+  
   Serial.print(rmsMeasured, 5); //total signal amplitude
   Serial.print(" "); 
   Serial.print(lag, 5); //phase measurement
@@ -633,46 +646,53 @@ void countEdge(){
 }
 
 void setGain(){
-  //ugly but fine
   if(preAmpGain == 0){
     digitalWrite(ampPin0, LOW);
     digitalWrite(ampPin1, LOW);
-    digitalWrite(ampPin2, LOW); 
+    digitalWrite(ampPin2, LOW);
+    calibrationFactor = (3.3/2.047); 
   }
   if(preAmpGain == 1){
     digitalWrite(ampPin0, HIGH);
     digitalWrite(ampPin1, LOW);
-    digitalWrite(ampPin2, LOW); 
+    digitalWrite(ampPin2, LOW);
+    calibrationFactor = (3.3/2.047)/preAmpGain; 
   }
   if(preAmpGain == 2){
     digitalWrite(ampPin0, LOW);
     digitalWrite(ampPin1, HIGH);
-    digitalWrite(ampPin2, LOW); 
+    digitalWrite(ampPin2, LOW);
+    calibrationFactor = (3.3/2.047)/preAmpGain;  
   }
   if(preAmpGain == 4){
     digitalWrite(ampPin0, HIGH);
     digitalWrite(ampPin1, HIGH);
-    digitalWrite(ampPin2, LOW); 
+    digitalWrite(ampPin2, LOW);
+    calibrationFactor = (3.3/2.047)/preAmpGain;  
   }
   if(preAmpGain == 8){
     digitalWrite(ampPin0, LOW);
     digitalWrite(ampPin1, LOW);
-    digitalWrite(ampPin2, HIGH); 
+    digitalWrite(ampPin2, HIGH);
+    calibrationFactor = (3.3/2.047)/preAmpGain;  
   }
   if(preAmpGain == 16){
     digitalWrite(ampPin0, HIGH);
     digitalWrite(ampPin1, LOW);
-    digitalWrite(ampPin2, HIGH); 
+    digitalWrite(ampPin2, HIGH);
+    calibrationFactor = (3.3/2.047)/preAmpGain;  
   }
   if(preAmpGain == 32){
     digitalWrite(ampPin0, LOW);
     digitalWrite(ampPin1, HIGH);
-    digitalWrite(ampPin2, HIGH); 
+    digitalWrite(ampPin2, HIGH);
+    calibrationFactor = (3.3/2.047)/preAmpGain;  
   }
   if(preAmpGain == 64){
     digitalWrite(ampPin0, HIGH);
     digitalWrite(ampPin1, HIGH);
-    digitalWrite(ampPin2, HIGH); 
+    digitalWrite(ampPin2, HIGH);
+    calibrationFactor = (3.3/2.047)/preAmpGain;  
   }
 }
 
