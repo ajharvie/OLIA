@@ -32,7 +32,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.graphWidget.getAxis('bottom').setTextPen('k')
         self.graphWidget.getAxis('left').setPen(self.axisPen)
         self.graphWidget.getAxis('bottom').setPen(self.axisPen)
-        self.graphWidget.setLabel('left', "R (a.u.)", **self.label_style)
+        self.graphWidget.setLabel('left', "R (mV)", **self.label_style)
         self.graphWidget.setLabel('bottom', "t (s)", **self.label_style)
         self.graphWidget.getAxis('bottom').showLabel(show = True)
         self.graphWidget.getAxis('right').setStyle(tickLength = 0)
@@ -177,13 +177,13 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.xvals = np.linspace(-0.1*(plotLength-1), 0, plotLength)
                         
                         if self.comboBox.currentIndex() == 0:
-                            self.graphWidget.setLabel('left', "R (a.u.)", **self.label_style)
+                            self.graphWidget.setLabel('left', "R (mV)", **self.label_style)
                             self.graphWidget2.setLabel('left', "φ (°)", **self.label_style)
                             self.dataCurve1.setData(self.xvals, self.toPlotR)
                             self.dataCurve2.setData(self.xvals, self.toPlotP)
                         else:
-                            self.graphWidget.setLabel('left', "X (a.u.)", **self.label_style)
-                            self.graphWidget2.setLabel('left', "Y (a.u.)", **self.label_style)
+                            self.graphWidget.setLabel('left', "X (mV)", **self.label_style)
+                            self.graphWidget2.setLabel('left', "Y (mV)", **self.label_style)
                             self.dataCurve1.setData(self.xvals, self.toPlotX)
                             self.dataCurve2.setData(self.xvals, self.toPlotY)
     
