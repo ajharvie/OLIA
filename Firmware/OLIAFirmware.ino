@@ -29,6 +29,8 @@ int preAmpGain = 1; //default input gain. 0, 1, 2, 4, 8, 16, 32 and 64 allowed
 
 double outputScale = 10; //scale factor for "analogue" output
 
+double outputScaleCalibration = 0.3149; //calibration factor for output scale (determined experimentally)
+
 double calibrationFactor = 3.3/2.047;
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -371,7 +373,8 @@ void loop() {
   
   Serial.println(""); //new line at end of output string
 
-  outVal = outputScale*rmsMeasured;
+  //outVal = outputScale*rmsMeasured;
+  outVal = outputScale*rmsMeasured*outputScaleCalibration;
   analogWrite(pwmPin, outVal); //output recovered amplitude via filtered pwm
 
   wait = true;
