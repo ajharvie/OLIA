@@ -23,5 +23,4 @@ This repository includes a [parts list and build guide](https://github.com/ajhar
 
 For those wanting to make optical measurements, we provide designs for an optical [DC servo add-on board](https://github.com/ajharvie/OLIA/blob/main/doc/DCServo.md) which can be used to compensate for and reject ambient light.
 
-An **arxiv preprint** describing the device and providing test data is available here: <https://doi.org/10.48550/arXiv.2211.08889>
 
